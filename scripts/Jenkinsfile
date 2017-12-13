@@ -78,12 +78,10 @@ node {
                 echo "Failed with failing tags ${failingListString}"
                 currentBuild.result = 'FAILURE'
             }
-            if (buildPassing) {
-                    post {
-                        //generate cucumber html report
-                        cucumber '**/cucumber-*.json'
-                    }
-            }
+            post {
+                    //generate cucumber html report
+                    cucumber '**/cucumber-*.json'
+                }
             if (notify) {
                 if (buildPassing) {
                     slackSend color: 'good', message: "${cc_android_job} UI tests passed, :tight:"
