@@ -61,4 +61,4 @@ if [[ $TAG = \@* ]] ; then
 else
   FEATURE=$TAG
 fi
-bundler exec calabash-android run commcare.apk $FEATURE --format junit --out reports
+bundler exec calabash-android run commcare.apk $FEATURE --format junit --out reports --format json --out report.json
